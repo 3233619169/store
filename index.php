@@ -58,9 +58,6 @@ $class_show_num = intval($conf['index_class_num_style']) ? intval($conf['index_c
 		<link rel="stylesheet" type="text/css" href="<?php echo $cdnpublic ?>layui/2.5.7/css/layui.css">
 		<link href="<?php echo $cdnpublic?>Swiper/6.4.5/swiper-bundle.min.css" rel="stylesheet">
 		<?php echo str_replace('body','html',$background_css)?>
-		<script src="https://cdn.jsdelivr.net/npm/vue@2.6.14/dist/vue.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/vue-router@3.5.1/dist/vue-router.js"></script>
-  
 		<script>
 			var _hmt = _hmt || [];
 (function() {
@@ -288,69 +285,48 @@ $class_show_num = intval($conf['index_class_num_style']) ? intval($conf['index_c
 			<input type="hidden" name="_template_showsales" value="<?php echo $conf['template_showsales']?>">
 			<input type="hidden" name="_sort_type" value="">
 			<input type="hidden" name="_sort" value="">
-	<div id="app">
-    <!-- 底部导航 -->
-    <div class="fui-navbar">
-        <router-link to="/" class="nav-item" active-class="active">
-            <img src="./assets/img/index/indexs.svg" style="width:32px;">
-            <span class="label">首页</span>
-        </router-link>
-        <router-link to="/order" class="nav-item" active-class="active">
-            <img src="./assets/img/index/order.svg" style="width:29px;">
-            <span class="label">订单</span>
-        </router-link>
-        <router-link to="/kf" class="nav-item" active-class="active">
-            <img src="./assets/img/index/kf.svg" style="width:30px;">
-            <span class="label">客服</span>
-        </router-link>
-        <router-link to="/app" class="nav-item" active-class="active">
-            <img src="./assets/img/index/app.svg" style="width:28px;">
-            <span class="label">APP下载</span>
-        </router-link>
-        <router-link to="/join" class="nav-item" active-class="active">
-            <img src="./assets/img/index/jia.svg" style="width:29px;">
-            <span class="label">加盟</span>
-        </router-link>
-        <router-link to="/user" class="nav-item" active-class="active">
-            <img src="./assets/img/index/user.svg" style="width:27px;">
-            <span class="label">会员中心</span>
-        </router-link>
-    </div>
-
-    <!-- 主内容区域，根据路由切换内容 -->
-    <router-view></router-view>
-</div>
-
-<script>
-    // 定义页面组件
-    const Home = { template: '<div>首页内容</div>' }
-    const Order = { template: '<div>订单内容</div>' }
-    const Kf = { template: '<div>客服内容</div>' }
-    const AppDownload = { template: '<div>APP下载内容</div>' }
-    const Join = { template: '<div>加盟内容</div>' }
-    const User = { template: '<div>会员中心内容</div>' }
-
-    // 路由配置
-    const routes = [
-        { path: '/', component: Home },
-        { path: '/order', component: Order },
-        { path: '/kf', component: Kf },
-        { path: '/app', component: AppDownload },
-        { path: '/join', component: Join },
-        { path: '/user', component: User }
-    ]
-
-    // 创建Vue Router实例
-    const router = new VueRouter({
-        routes // 配置路由
-    })
-
-    // 创建Vue实例并挂载
-    new Vue({
-        el: '#app',
-        router // 将router传入Vue实例中
-    })
-</script>
+			<div class="fui-navbar" style="max-width: 650px;z-index: 100; height: 2.8rem;">
+				<a href="./" class="nav-item active">
+					<span class=" " style="width:35px;font-size:1.5rem;">
+						<img src="./assets/img/index/indexs.svg" style="width:32px;">
+					</span>
+					<span class="label" style="color:#ff6c44">首页</span>
+				</a>
+				<a href="./?store=query" class="nav-item ">
+					<span class="" style="font-size:1.5rem">
+						<img src="./assets/img/index/order.svg" style="width:29px;">
+					</span>
+					<span class="label">订单</span>
+				</a>
+				<a href="./?store=kf" class="nav-item ">
+					<span class="" style="font-size:1.5rem">
+						<img src="./assets/img/index/kf.svg" style="width:30px;">
+					</span>
+					<span class="label">客服</span>
+				</a>
+				<?php if($conf['appurl']){?>
+				<a href="<?php echo $conf['appurl']; ?>" class="nav-item ">
+					<span class="" style="font-size:1.5rem;margin-top:15px;">
+						<img src="./assets/img/index/app.svg" style="width:28px;">
+					</span>
+					<span class="label">APP下载</span>
+				</a>
+				<?php }else{?>
+				<?php }?>
+				<a href="./user/jm.php" class=" nav-item  ">
+					<span class="" style="font-size:1.5rem">
+						<img src="./assets/img/index/jia.svg" style="width:29px;">
+					</span>
+					<span class=" label titlename">加盟</span>
+				</a>
+				<a href="./user/" class="nav-item " Target="_blank">
+					<span class="" style="font-size:1.5rem">
+						<img src="./assets/img/index/user.svg" style="width:27px;">
+					</span>
+					<span class="label">会员中心</span>
+				</a>
+			</div>
+		</div>
 		</div>
 		</div>
 		</div>
@@ -397,7 +373,6 @@ $class_show_num = intval($conf['index_class_num_style']) ? intval($conf['index_c
 			// 动态计算字体大小以适应屏幕宽度
 			        document.documentElement.style.fontSize = document.documentElement.clientWidth / 750 * 40 + 'px';
 		</script>
-
 
 
 		<script>
